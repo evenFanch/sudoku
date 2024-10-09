@@ -101,7 +101,7 @@ public class Tableau
 		return false;
 	}
 
-	public String toString()
+	/*public String toString()
 	{
 		String str="\n";
 		for (int j=0; j<tabCase.length;j++){str+="-"}
@@ -114,7 +114,7 @@ public class Tableau
 			}
 		}
 			
-	}
+	}*/
 
 	public static void main(String[] args) 
 	{
