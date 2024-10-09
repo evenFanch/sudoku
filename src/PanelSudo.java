@@ -60,13 +60,11 @@ public class PanelSudo extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		for (int i=0; i<plat.getTaille(); i++)
-		{
 			for (int j=0;j<plat.getTaille();j++)
 			{
 				//System.out.print(this.tabTxt[i][j].getText());
 				this.plat.modifierCase(this.tabTxt[i][j].getText(),i,j);
 				
 			}
-		}
 	}
 }
