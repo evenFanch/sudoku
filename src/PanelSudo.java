@@ -34,8 +34,9 @@ public class PanelSudo extends JPanel implements ActionListener
 					else 
 						this.tabTxt[cptI][cptJ]= new JTextField (plat.getCases()[cptJ][cptI].getValeur()+"");
 
+					this.tabTxt[cptI][cptJ].addActionListener(this);
 					this.add(this.tabTxt[cptI][cptJ]);
-					System.out.println(i+"|"+j+"      "+cptI+" : "+cptJ);
+					//System.out.println(i+"|"+j+"      "+cptI+" : "+cptJ);
 					cptJ++;
 					
 				}
@@ -58,13 +59,13 @@ public class PanelSudo extends JPanel implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
-		for (int i=0; i<plat.getTaille()+2; i++)
+		for (int i=0; i<plat.getTaille(); i++)
 		{
-			for (int j=0;j<plat.getTaille()+2;j++)
+			for (int j=0;j<plat.getTaille();j++)
 			{
-				if (this.tabTxt[i][j].equals(e))
-					return;
-
+				//System.out.print(this.tabTxt[i][j].getText());
+				this.plat.modifierCase(this.tabTxt[i][j].getText(),i,j);
+				
 			}
 		}
 	}
