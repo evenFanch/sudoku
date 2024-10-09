@@ -48,12 +48,12 @@ public class Tableau
 			//System.out.println(tabCase[j][i]);
 			tabCase[j][i].setValeur(valeurInt);
 			//System.out.println(tabCase[j][i]);
-			if (verifierTableau())
-				System.out.println("Bien Joué");
+			
 
 		}
 		catch(Exception e)
 		{
+			System.out.println(e);
 			System.out.println("ca marche pas");
 			return false;
 		}
@@ -62,21 +62,58 @@ public class Tableau
 
 	public boolean verifierTableau ()
 	{
-		int valeurTempI;
-		int valeurTempJ;
-		
+		Case[] temp = new Case[9];
+		int cpt=0;
+
+		for (Case[] ligne : this.tabCase)
+			if (estEnDouble(ligne)){System.out.println ("erreur2");return false;}
+
+		for (int i=0; i<tabCase.length; i++)
+		{
+			temp = new Case[9];
+			cpt=0;
+			for (int j=0; j<tabCase[0].length; j++)
+			{
+				//System.out.println(cpt + " | "+i+" | "+j);
+				if (tabCase[i][j].getValeur()==0){System.out.println ("erreur1");return false;}
+				temp[cpt]=tabCase[j][i];
+				cpt++;
+			}
+			if (estEnDouble(temp)){System.out.println ("erreur3");return false;}
+		}
+
+		return true;
+
+	}
+
+	public void valider ()
+	{
+		if (verifierTableau())
+				System.out.println("Bien Joué");
+	}
+
+	private boolean estEnDouble (Case[] tab)
+	{
+		for (int i=0; i<tab.length; i++)
+			for (int j=i+1; j<tab.length; j++)
+				if (tab[i].getValeur()==tab[j].getValeur())
+					return true;
+		return false;
+	}
+
+	public String toString()
+	{
+		String str="\n";
+		for (int j=0; j<tabCase.length;j++){str+="-"}
 		for (int i=0; i<tabCase.length;i++)
 		{
-			valeurTempJ=tabCase[i][0].getValeur();
-			valeurTempI=tabCase[0][i].getValeur();
-
-			for (int j=0; j<tabCase.length; j++)
+			
+			for (int j=0; j<tabCase.length;j++)
 			{
-				if (tabCase[i][j].getValeur()==valeurTempJ && j!=0) return false;
-				if (tabCase[j][i].getValeur()==valeurTempJ && i!=0) return false;
+
 			}
 		}
-		return true;
+			
 	}
 
 	public static void main(String[] args) 
