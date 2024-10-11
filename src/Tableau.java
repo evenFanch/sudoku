@@ -66,7 +66,7 @@ public class Tableau
 		int cpt=0;
 
 		for (Case[] ligne : this.tabCase)
-			if (estEnDouble(ligne)){System.out.println ("erreur2");return false;}
+			if (estEnDouble(ligne)){System.out.println ("Il y a 2 fois le même nombres sur la même ligne");return false;}
 
 		for (int i=0; i<tabCase.length; i++)
 		{
@@ -75,11 +75,11 @@ public class Tableau
 			for (int j=0; j<tabCase[0].length; j++)
 			{
 				//System.out.println(cpt + " | "+i+" | "+j);
-				if (tabCase[i][j].getValeur()==0){System.out.println ("erreur1");return false;}
+				if (tabCase[i][j].getValeur()==0){System.out.println ("Remplissez toutes les cases");return false;}
 				temp[cpt]=tabCase[j][i];
 				cpt++;
 			}
-			if (estEnDouble(temp)){System.out.println ("erreur3");return false;}
+			if (estEnDouble(temp)){System.out.println ("Il y a 2 fois le même nombres sur la même colonnes");return false;}
 		}
 
 		return true;
