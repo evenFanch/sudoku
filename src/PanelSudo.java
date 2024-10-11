@@ -32,8 +32,14 @@ public class PanelSudo extends JPanel implements ActionListener
 					if (plat.getCases()[cptJ][cptI].getValeur()==0)
 						this.tabTxt[cptI][cptJ]= new JTextField ();
 					else 
+					{
 						this.tabTxt[cptI][cptJ]= new JTextField (plat.getCases()[cptJ][cptI].getValeur()+"");
-
+						this.tabTxt[cptI][cptJ].setHorizontalAlignment(JTextField.CENTER);
+						this.tabTxt[cptI][cptJ].setCaretColor(Color.RED);
+						this.tabTxt[cptI][cptJ].setEditable(false);
+					}
+						
+					
 					this.tabTxt[cptI][cptJ].addActionListener(this);
 					this.add(this.tabTxt[cptI][cptJ]);
 					//System.out.println(i+"|"+j+"      "+cptI+" : "+cptJ);
