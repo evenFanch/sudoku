@@ -1,2 +1,2 @@
 # sudoku
- projet de sudoku en java (en cours)
+ projet de sudoku en java 
